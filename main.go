@@ -134,9 +134,14 @@ func sendMail(toAddress, subject, body string) error {
 	return nil
 }
 
+func firstPage(c *gin.Context){
+	c.IndentedJSON(http.StatusOK, gin.H{"success": 1})
+}
+
 func main() {
 	router := gin.Default()
 	router.Use(cors.Default())
+	router.GET("/",firstPage)
 	router.GET("/teams", getTeams)
 	router.POST("/teams", setTeams)
 	router.POST("/teams/:id", teamById)
