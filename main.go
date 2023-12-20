@@ -148,5 +148,5 @@ func main() {
 	router.POST("/teams/login/:id", login)
 	router.POST("/teams/ques/:id", getQuesByID)
 	router.POST("/teams/ans/:id", checkAnsByID)
-	router.Run("localhost:8080")
+	router.Run("0.0.0.0:3000")
 }
